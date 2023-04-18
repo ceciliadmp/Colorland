@@ -24,7 +24,7 @@ struct CreditsView: View {
                 
                 Rectangle()
                     .background(Color.black)
-                    .opacity(0.2)
+                    .opacity(0.3)
                 
                 VStack {
                     
@@ -55,6 +55,23 @@ struct CreditsView: View {
                                 .multilineTextAlignment(.center)
                         }
                     
+                    //SOUNDS
+                    VStack{
+                        
+                        Text("Music:")
+                                .font(.system(size: 24))
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color.white)
+                                .padding(.top, 16)
+                                .padding(.bottom, 8)
+                        
+                        Text("Music composition and production by the owner, Cecília Moraes.")
+                            .font(.system(size: 20))
+                            .fontWeight(.regular)
+                            .foregroundColor(Color.white)
+                            .padding(.bottom, 8)
+                            .multilineTextAlignment(.center)
+                    }
                     
                     //REFERENCES
                         VStack{
@@ -108,13 +125,4 @@ struct CreditsView: View {
         
     }
     
-    
-    struct CreditsView_Previews: PreviewProvider {
-        static var previews: some View {
-            CreditsView()
-                .environmentObject(dev.vm)
-                .environmentObject(dev.contrastVm)
-
-        }
-    }
 }

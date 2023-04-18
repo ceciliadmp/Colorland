@@ -11,11 +11,9 @@ struct ContrastMachineView: View {
     
     
     @State var isShowingPopup = false
-    @State private var showOptionView = false
+    @State private var showFinishScreen = false
     
     @EnvironmentObject var contrastViewModel: ContrastViewModel
-    @Environment(\.dismiss) var dismiss
-    
     
     var body: some View {
         
@@ -92,13 +90,13 @@ struct ContrastMachineView: View {
                 //BUTTONS
                 HStack{
                     
+                    //FINISH BUTTON
                     Button {
-                        dismiss()
+                        showFinishScreen = true
                     } label: {
-                        BackButton()}
+                        FinishButton()}
                     
-                    Spacer()
-                    
+                    //CALCULATE BUTTON
                     calculateButton
                 }
                 
@@ -112,16 +110,14 @@ struct ContrastMachineView: View {
         .ignoresSafeArea()
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarHidden(true)
-        .fullScreenCover(isPresented: $showOptionView, content: {
-            OptionView()
-                .environmentObject(contrastViewModel)
-            
-        })
+        .fullScreenCover(isPresented: $showFinishScreen, content: {
+            FinishScreen()
+                .environmentObject(contrastViewModel)})
         
         
         //POPUP HERE
         .sheet(isPresented: $isShowingPopup) {
-            showOptionView = true
+            //showOptionView = true
         } content: {
             
             ZStack{
@@ -148,9 +144,9 @@ struct ContrastMachineView: View {
                         .padding(.bottom, 16)
                     
                     Text(contrastViewModel.contrastDescription)
-                        .font(.system(size: 24))
-                        .fontWeight(.medium)
-                        .foregroundColor(Color.gray)
+                        .font(.system(size: 32))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color(red: 0.093, green: 0.016, blue: 0.312))
                         .multilineTextAlignment(.center)
                         
                     
@@ -177,11 +173,3 @@ struct ContrastMachineView: View {
 
     }
 }
-    
-    struct ContrastMachineView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContrastMachineView()
-                .environmentObject(dev.vm)
-                .environmentObject(dev.contrastVm)
-        }
-    }

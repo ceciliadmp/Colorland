@@ -26,7 +26,6 @@ struct FinishScreen: View {
                 VStack {
                     
                     Spacer()
-                        .frame(height: 280)
                     
                     Text("Hey, traveler! This is the end of our adventure.")
                         .font(.system(size: 48))
@@ -59,6 +58,8 @@ struct FinishScreen: View {
                                     }
                     
                     Spacer()
+                    Spacer()
+                    Spacer()
                     
                 }
                 .padding(56)
@@ -68,15 +69,5 @@ struct FinishScreen: View {
         }.navigationViewStyle(StackNavigationViewStyle())
             .navigationBarHidden(true)
         
-    }
-    
-    
-    struct FinishScreen_Previews: PreviewProvider {
-        static var previews: some View {
-            FinishScreen()
-                .environmentObject(dev.vm)
-                .environmentObject(dev.contrastVm)
-
-        }
     }
 }

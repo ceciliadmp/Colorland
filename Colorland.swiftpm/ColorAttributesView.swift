@@ -50,7 +50,7 @@ struct ColorAttributesView: View {
                     
                     Text("Cool! Our sky is colorful again. Now the next step will be to understand a little more about the attributes of colors: Hue, Saturation and Brightness.")
                         .fontWeight(.medium)
-                        .font(.system(size: 28))
+                        .font(.system(size: 24))
                         .foregroundColor(Color.white)
                         .padding(24)
                     
@@ -58,7 +58,6 @@ struct ColorAttributesView: View {
                 .frame(height: 250)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 32)
-                
                 
                 Image("blue")
                     .offset(x: 0, y: transY+40)
@@ -83,11 +82,7 @@ struct ColorAttributesView: View {
                             .cornerRadius(16)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 20).stroke(Color(red: 1, green: 0.775, blue: 0.843), lineWidth: 3.0))}
-                    
-//                    Button {
-//                        dismiss()
-//                    } label: {
-//                        BackButton()}
+                
                     
                     Spacer()
                     
@@ -117,11 +112,4 @@ struct ColorAttributesView: View {
     }
 }
 
-struct ColorAttributesView_Previews: PreviewProvider {
-    static var previews: some View {
-        ColorAttributesView()
-            .environmentObject(dev.vm)
-            .environmentObject(dev.contrastVm)
-    }
-}
 

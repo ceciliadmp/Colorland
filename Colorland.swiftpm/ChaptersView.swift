@@ -34,13 +34,13 @@ struct ChaptersView: View {
                         .foregroundColor(Color.white)
                     
                     
-                    
+                    //COLORS MEANING
                     NavigationLink(destination: ColorEmotionView()
                         .environmentObject(contrastViewModel)
                         .environmentObject(colorViewModel))
                     {
                         Text("     Colors meaning")
-                            .font(.system(size: 24, weight: .semibold))
+                            .font(.system(size: 20, weight: .medium))
                             .frame(width: 700, height: 90, alignment: .leading)
                             .background(Color(red: 0.093, green: 0.016, blue: 0.312).opacity(0.6))
                             .foregroundColor(.white)
@@ -48,21 +48,12 @@ struct ChaptersView: View {
                             .padding(4)
                         
                     }
+                    
+                    //RGB MACHINE
                     NavigationLink(destination: RGBOnboardingView().environmentObject(colorViewModel)
                         .environmentObject(contrastViewModel)) {
                         Text("     RGB Machine")
-                            .font(.system(size: 24, weight: .semibold))
-                            .frame(width: 700, height: 90, alignment: .leading)
-                            .background(Color(red: 0.093, green: 0.016, blue: 0.312).opacity(0.6))
-                            .foregroundColor(.white)
-                            .cornerRadius(16)
-                            .padding(4)
-                    }
-                    NavigationLink(destination: ColorAttributesView()
-                        .environmentObject(contrastViewModel)
-                        .environmentObject(colorViewModel)) {
-                        Text("     Colors Attributes")
-                            .font(.system(size: 24, weight: .semibold))
+                            .font(.system(size: 20, weight: .medium))
                             .frame(width: 700, height: 90, alignment: .leading)
                             .background(Color(red: 0.093, green: 0.016, blue: 0.312).opacity(0.6))
                             .foregroundColor(.white)
@@ -70,11 +61,25 @@ struct ChaptersView: View {
                             .padding(4)
                     }
                     
+                    //COLORS ATTRIBUTES
+                    NavigationLink(destination: ColorAttributesView()
+                        .environmentObject(contrastViewModel)
+                        .environmentObject(colorViewModel)) {
+                        Text("     Colors Attributes")
+                                .font(.system(size: 20, weight: .medium))
+                            .frame(width: 700, height: 90, alignment: .leading)
+                            .background(Color(red: 0.093, green: 0.016, blue: 0.312).opacity(0.6))
+                            .foregroundColor(.white)
+                            .cornerRadius(16)
+                            .padding(4)
+                    }
+                    
+                    //CONTRAST MACHINE
                     NavigationLink(destination: ContrastOnboardingView()
                         .environmentObject(contrastViewModel)
                         .environmentObject(colorViewModel)) {
                         Text("     Color Contrast Calculator")
-                            .font(.system(size: 24, weight: .semibold))
+                            .font(.system(size: 20, weight: .medium))
                             .frame(width: 700, height: 90, alignment: .leading)
                             .background(Color(red: 0.093, green: 0.016, blue: 0.312).opacity(0.6))
                             .foregroundColor(.white)
@@ -100,8 +105,7 @@ struct ChaptersView: View {
                     Spacer()
                 
                 
-            }
-                .padding(56)
+            } .padding(56)
                 
             } .edgesIgnoringSafeArea(.all)
             
@@ -111,17 +115,5 @@ struct ChaptersView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarHidden(true)
         
-    }
-    
-    
-    struct ChaptersView_Previews: PreviewProvider {
-        static var previews: some View {
-            ChaptersView()
-                .environmentObject(dev.vm)
-                .environmentObject(dev.contrastVm)
-            
-                
-
-        }
     }
 }

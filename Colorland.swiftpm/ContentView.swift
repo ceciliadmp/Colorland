@@ -5,11 +5,12 @@ struct ContentView: View {
     @EnvironmentObject var colorViewModel: ColorViewModel
     @EnvironmentObject var contrastViewModel: ContrastViewModel
     
+    
+    //ARRAYS OF IMAGES AND TEXTS
     let text = [
         "Hello, welcome to ColorLand, the most colorful planet in space! My name is Blue and I will guide you on this adventure. For a better experience, it's important that you play in a vertical position. So let's start...",
         "We are all beings of light here, and our colors are made from the mixture of red, green and blue, the primary colors",
-        "Unfortunately, not everything is well in our world. Colors have started to disappear, and we don't know what's happening. The blue of the sky has gone and the green of the trees has vanished. We are desperate to bring the colors back and we need your help."
-    ]
+        "Unfortunately, not everything is well in our world. Colors have started to disappear, and we don't know what's happening. The blue of the sky has gone and the green of the trees has vanished. We are desperate to bring the colors back and we need your help."]
     
     let image = [
     "blue",
@@ -19,8 +20,7 @@ struct ContentView: View {
     let bg = [
     "bg",
     "bg",
-    "sadBg"
-    ]
+    "sadBg"]
     
     @State var indexText = 0
     @State var indexImage = 0
@@ -28,11 +28,9 @@ struct ContentView: View {
     @State private var count = 0
     @State private var showColorEmotionView = false
 
-    
     var body: some View {
             
             ZStack{
-                
                 Image(bg[indexBg])
                     .resizable()
                     .scaledToFill()
@@ -42,8 +40,8 @@ struct ContentView: View {
                     
                     Spacer()
                     
+                    //DIALOGUE CONTAINER HERE
                     ZStack(){
-                        
                         Rectangle()
                             .fill(Color(red: 0.093, green: 0.016, blue: 0.312))
                             .opacity(0.6)
@@ -54,7 +52,7 @@ struct ContentView: View {
                         
                         Text(text[indexText])
                             .fontWeight(.regular)
-                            .font(.system(size: 28))
+                            .font(.system(size: 24))
                             .foregroundColor(Color.white)
                             .lineSpacing(2)
                             .padding(24)
@@ -65,16 +63,16 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    
                         Image(image[indexImage])
 
-                    
                     Spacer()
                     
+                    //BUTTON
                     HStack{
-                        
                         Spacer()
                         
+                        //The first conditional statement checks if the current index of the text array plus one is equal to the length of the text array. If it is, a boolean variable "showColorEmotionView" is set to true.
+                        //If the first condition is false, the code inside the else block is executed.
                         Button {
                             if (self.indexText + 1 == self.text.count){
                                 showColorEmotionView = true
@@ -87,37 +85,26 @@ struct ContentView: View {
                                 count += 1
                                 
                                 self.indexBg = (self.indexBg + 1) % self.bg.count
-                                count += 1
-                                
-                                
-                            }
+                                count += 1}
+                            
                         } label: { NextButton()}
 
                     }
-                    
-                
+
                     Spacer()
-                }
-                .padding(56)
+                    
+                } .padding(56)
            }
+        //The .navigationBarHidden(true) modifier hides the navigation bar that appears at the top of the screen in a navigation view
+        //the fullScreenCover modifier displays a new view, ColorEmotionView(), in full screen when the boolean variable showColorEmotionView is true
             .navigationBarHidden(true)
-        .navigationViewStyle(StackNavigationViewStyle())
-        .fullScreenCover(isPresented: $showColorEmotionView, content: {
+            .navigationViewStyle(StackNavigationViewStyle())
+            .fullScreenCover(isPresented: $showColorEmotionView, content: {
             ColorEmotionView()
                 .environmentObject(colorViewModel)
-                .environmentObject(contrastViewModel)
-        })
+                .environmentObject(contrastViewModel)})
         
     }
     
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-                .environmentObject(dev.vm)
-                .environmentObject(dev.contrastVm)
-            
-        }
-    }
 }
 

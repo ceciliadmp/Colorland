@@ -18,7 +18,6 @@ struct RGBMachineView: View {
     var body: some View {
         
         ZStack{
-            
             Image("bgClear")
                 .resizable()
             
@@ -32,20 +31,22 @@ struct RGBMachineView: View {
                     .foregroundColor(Color.white)
                 
                 
-                DialogueContainer(image: "blueFace", text: "From red, green and blue it is possible to create other colors! Test the possibilities by creating a new character for Colorland.")
+                DialogueContainer(image: "blueFace", text: "From red, green and blue it is possible to create other colors! Test the possibilities by creating colors for Colorland.")
                 
-                
+                //Rectangle where the fill color will receive the value of the variables changed by the sliders
                 Rectangle()
-                    .fill(Color(UIColor(red: CGFloat((contrastViewModel.rgbRed) / 255),
-                                        green: CGFloat((contrastViewModel.rgbGreen) / 255),
-                                        blue: CGFloat((contrastViewModel.rgbBlue) / 255),
-                                        alpha: 1)))
+                    .fill(Color(UIColor(
+                        red: CGFloat((contrastViewModel.rgbRed) / 255),
+                        green: CGFloat((contrastViewModel.rgbGreen) / 255),
+                        blue: CGFloat((contrastViewModel.rgbBlue) / 255),
+                        alpha: 1)))
+                
                     .frame(height: 300)
                     .cornerRadius(20)
                     .overlay(Image("eyes"))
                 
-                
                 ContrastSlider1(value: $contrastViewModel.rgbRed)
+                //slider that allows the user to adjust the red component of an RGB color value, with the changes reflected in the rgbRed variable
                 
                 ContrastSlider2(value: $contrastViewModel.rgbGreen)
                 
@@ -66,9 +67,7 @@ struct RGBMachineView: View {
                     Button {
                         showColorAttributesView = true
                     } label: {
-                        NextButton()
-                    }
-                    
+                        NextButton()}
                     
                 }
                 
@@ -81,17 +80,7 @@ struct RGBMachineView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .fullScreenCover(isPresented: $showColorAttributesView, content: {
             ColorAttributesView()
-                .environmentObject(contrastViewModel)
-            
-        })
+                .environmentObject(contrastViewModel)})
         
     }
 }
-    
-    struct RGBMachineView_Previews: PreviewProvider {
-        static var previews: some View {
-            RGBMachineView()
-                .environmentObject(dev.vm)
-                .environmentObject(dev.contrastVm)
-        }
-    }

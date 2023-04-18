@@ -8,11 +8,13 @@
 import SwiftUI
 struct ColorPickerView: View {
     
-    @Binding var chosenColor: Color // 1
+    @Binding var chosenColor: Color
         
-    @State private var startLocation: CGFloat = .zero // 2
-    @State private var dragOffset: CGSize = .zero // 3
-    // 4
+    @State private var startLocation: CGFloat = .zero
+    @State private var dragOffset: CGSize = .zero
+
+    
+    //allows the view to interact with and modify the value of the Color variable outside the view
     init(chosenColor: Binding<Color>) {
         self._chosenColor = chosenColor
     }
@@ -20,23 +22,27 @@ struct ColorPickerView: View {
     private var colors: [Color] = {
         
         let hueValues = Array(0...359)
-        
+        //array ​​that contains int from 0 to 359, which represent the hue component of a color
+    
         return hueValues.map {
             Color(UIColor(hue: CGFloat($0) / 359.0 ,
                           saturation: 1.0,
                           brightness: 1.0,
-                          alpha: 1.0))
-        }
+                          alpha: 1.0))}
+        //For each value in the hueValues ​​array, the map function creates a UIColor object with the corresponding hue value and a saturation and brightness of 1.0 and an alpha of 1.0.
+        //The UIColor object is converted using the Color() initializer
     }()
     
 
         
         private var currentColor: Color {
+            
             Color(UIColor.init(hue: self.normalizeGesture() / 600, saturation: 1.0, brightness: 1.0, alpha: 1.0))
         }
         
         
         private func normalizeGesture() -> CGFloat {
+            
             let offset = startLocation + dragOffset.width
             let maxX = max(0, offset)
             let minX = min(maxX, 600) 
@@ -48,7 +54,9 @@ struct ColorPickerView: View {
     
     
     var body: some View {
+        
         ZStack {
+            //Gradient setting
             LinearGradient(gradient: Gradient(colors: colors),
                             startPoint: .leading,
                                        endPoint: .trailing)
@@ -65,11 +73,5 @@ struct ColorPickerView: View {
                         })
                     )
             }
-    }
-}
-
-struct ColorPickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        ColorPickerView(chosenColor: Binding.constant(Color.white))
     }
 }

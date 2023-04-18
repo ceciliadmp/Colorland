@@ -31,38 +31,15 @@ struct HueView: View {
                     .fontWeight(.regular)
                     .foregroundColor(Color.white)
             
-                
+                    //DIALOGUE CONTAINER COMPONENT
+                    DialogueContainer(image: "blueFace", text: "Hue refers to pure pigment, with no black or white added. From that main color, you can change the saturation or brightness and find new colors.")
+                    
                 ZStack{
                     
-                    Rectangle()
-                        .fill(Color(red: 0.093, green: 0.016, blue: 0.312))
-                        .opacity(0.6)
-                        .cornerRadius(20)
-                        .frame(height: 150)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20).stroke(Color(red: 0.531, green: 0.367, blue: 1), lineWidth: 2.0))
-
-                    
-                    HStack (alignment: .center){
-                        
-                        Image("blueFace")
-                            .cornerRadius(12)
-                            .padding(8)
-                        
-                        Text("Hue refers to pure pigment, with no black or white added. From that main color, you can change the saturation or brightness and find new colors.")
-                            .font(.system(size: 22))
-                            .foregroundColor(Color.white)
-                            .padding(.trailing, 8)
-                    }
-                    
-                } //TEXTO
-                .padding(.vertical, 12)
-
-                ZStack{
-                    
+                    //HUE MACHINE
                     Text("Drag your finger across the color picker below to pick a color.")
                         .foregroundColor(Color.white)
-                        .font(.system(size: 20))
+                        .font(.system(size: 18))
                     
                     colorViewModel.currentColor
                         .cornerRadius(16)
@@ -72,12 +49,13 @@ struct HueView: View {
                     
                     Image("machine")
                         .resizable()
-                        //.scaledToFit()
                     
-                }.frame(height: 330)
+                } .frame(height: 330)
                 
                     
                 ZStack{
+                    
+                    //COLOR PICKER VIEW
                     Rectangle()
                         .fill(Color.black)
                         .opacity(0.2)
@@ -85,14 +63,14 @@ struct HueView: View {
                     
                     ColorPickerView(chosenColor: $colorViewModel.currentColor)
                         .padding(16)
-                    
-                    
-                }.frame(height: 100)
-                    .padding(12)
+                }
+                .frame(height: 100)
+                .padding(12)
                     
                 
                 HStack{
                     
+                    //BACK BUTTON
                     Button {
                         dismiss()
                     } label: {
@@ -100,10 +78,9 @@ struct HueView: View {
                     
                     Spacer()
                     
+                    //NEXT BUTTON
                     Button {
-                        
                         showSaturationView = true
-                        
                     } label: {
                         
                         Text("SAVE")
@@ -116,7 +93,7 @@ struct HueView: View {
                             .overlay(
                                 RoundedRectangle(cornerRadius: 20).stroke(Color(red: 1, green: 0.775, blue: 0.843), lineWidth: 3.0))}
 
-                }.padding(.top, 32)
+                } .padding(.top, 32)
                 
                 Spacer()
                 
@@ -129,36 +106,7 @@ struct HueView: View {
         .fullScreenCover(isPresented: $showSaturationView, content: {
             SaturationView()
                 .environmentObject(contrastViewModel)
-                .environmentObject(colorViewModel)
-            
-        })
+                .environmentObject(colorViewModel)})
         
     }
-    
-}
-    
-    struct HueView_Previews: PreviewProvider {
-        static var previews: some View {
-            HueView()
-                .environmentObject(dev.vm)
-                .environmentObject(dev.contrastVm)
-        }
-    }
-
-extension PreviewProvider {
-    
-    static var dev: DeveloperPreview{
-        return DeveloperPreview.shared
-    }
-    
-}
-
-class DeveloperPreview {
-    // Creating singleton
-    static let shared = DeveloperPreview()
-    private init() {}
-    // To acess ViewModel in providers
-    let vm = ColorViewModel()
-    let contrastVm = ContrastViewModel()
-    
 }

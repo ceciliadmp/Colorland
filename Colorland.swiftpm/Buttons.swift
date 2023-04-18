@@ -24,6 +24,22 @@ struct BackButton: View {
     }
 }
 
+struct FinishButton: View {
+    var body: some View {
+        
+        Text("FINISH")
+            .font(.system(size: 20, weight: .semibold))
+            .foregroundColor(.pink)
+            .frame(width: 180, height: 70)
+            .background(Color.white).opacity(0.9)
+            .cornerRadius(16)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20).stroke(Color(red: 1, green: 0.775, blue: 0.843), lineWidth: 3.0))
+        
+        
+    }
+}
+
 struct NextButton: View {
     var body: some View {
         Text("NEXT")

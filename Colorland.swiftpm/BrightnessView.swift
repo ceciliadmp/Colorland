@@ -32,28 +32,9 @@ struct BrightnessView: View {
                     .font(.system(size: 44))
                     .foregroundColor(Color.white)
                 
-                ZStack{
-                    
-                    Rectangle()
-                        .fill(Color(red: 0.093, green: 0.016, blue: 0.312))
-                        .opacity(0.6)
-                        .cornerRadius(20)
-                        .frame(height: 150)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20).stroke(Color(red: 0.531, green: 0.367, blue: 1), lineWidth: 2.0))
-                    
-                    
-                    HStack (alignment: .center){
-                        
-                        Image("blueFace")
-                            .cornerRadius(12)
-                            .padding(8)
-                        
-                        Text("Brightness, also known as value or luminosity, refers to the perceived amount of light in a color. A bright color is one that appears to reflect a lot of light and is closer to white, while a dark color is closer to black.")
-                            .font(.system(size: 22))
-                            .foregroundColor(Color.white)
-                            .padding(.trailing, 8)
-                    }} .padding(.vertical, 12)
+                //DIALOGUE CONTAINER COMPONENT
+                DialogueContainer(image: "blueFace", text: "Brightness, also known as value or luminosity, refers to the perceived amount of light in a color. A bright color is one that appears to reflect a lot of light and is closer to white, while a dark color is closer to black.")
+                
                 
                 ZStack{
                     
@@ -132,10 +113,3 @@ struct BrightnessView: View {
     
 }
 
-struct BrightnessView_Previews: PreviewProvider {
-    static var previews: some View {
-        BrightnessView()
-            .environmentObject(dev.vm)
-            .environmentObject(dev.contrastVm)
-    }
-}

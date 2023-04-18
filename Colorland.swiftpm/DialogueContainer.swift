@@ -13,6 +13,9 @@ struct DialogueContainer: View {
     let text: String
     
     var body: some View {
+        
+        //This type of components can be easily modified and reused in different parts of the app
+        
         ZStack{
             
             Rectangle()
@@ -35,22 +38,13 @@ struct DialogueContainer: View {
                 Text(text)
                     .font(.system(size: 22))
                     .foregroundColor(Color.white)
-                    //.padding(.trailing, 8)
-                
+                    
                 Spacer()
+                
             }.padding(.horizontal, 4)
             
         }
         .padding(.vertical, 12)
         
-    }
-    
-}
-
-struct DialogueContainer_Previews: PreviewProvider {
-    static var previews: some View {
-        DialogueContainer(image: "blueFace", text: "oooooiiiii")
-            .environmentObject(dev.vm)
-            .environmentObject(dev.contrastVm)
     }
 }
