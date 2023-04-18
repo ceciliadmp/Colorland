@@ -48,7 +48,7 @@ struct CreditsView: View {
                                     .padding(.bottom, 8)
                             
                             
-                            Text("All illustrations were hand-drawn by the game owner, Cecília Moraes. Each image was carefully created by hand, bringing a personal touch to the visual experience.")
+                            Text("All illustrations were hand-drawn by the game's owner, Cecília Moraes. Each image was carefully created by hand in Adobe Illustrator and Figma.")
                                 .font(.system(size: 20))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color.white)
@@ -65,7 +65,7 @@ struct CreditsView: View {
                                 .padding(.top, 16)
                                 .padding(.bottom, 8)
                         
-                        Text("Composition and musical production by the owner, Cecília Moraes. The song was made in GarageBand.")
+                        Text("Composition and musical production by the owner, Cecília Moraes. The song was made in GarageBand, Apple's native software.")
                             .font(.system(size: 20))
                             .fontWeight(.regular)
                             .foregroundColor(Color.white)
