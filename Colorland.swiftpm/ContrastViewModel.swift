@@ -66,7 +66,7 @@ class ContrastViewModel: ObservableObject {
             return individualFormula(value: ilumenecense)
         }
         
-        //extraindo para uma variável individual
+        //individual variable
         let red1 = individualFormulas[0],
             green1 = individualFormulas[2],
             blue1 = individualFormulas[4]
@@ -104,25 +104,31 @@ class ContrastViewModel: ObservableObject {
         case 0..<3.5:
             self.popUpText = "Oh no, you can do better. Try different colors."
             self.contrastDescription = "Fail - " + String(format: "%.2f", result)
+           
            print("RESULT 1")
             
         case 3.5..<4.5:
             self.popUpText = "It's ok, but you can improve this contrast."
             self.contrastDescription = "A - " + String(format: "%.2f", result)
+           
             print("RESULT 2")
             
         case 4.5..<7:
             self.popUpText = "Good contrast"
             self.contrastDescription = "AA - " + String(format: "%.2f", result)
+           
             print("RESULT 3")
             
         case 7..<23:
             self.popUpText = "Yes! These colors have great contrast. Congratulations :)"
             self.contrastDescription = "AAA - " + String(format: "%.2f", result)
+            
             print("RESULT 4")
             
         default:
             self.popUpText = "Oh no, you can do better. Try different colors."
+            self.contrastDescription = "Fail - " + String(format: "%.2f", result)
+            
             print("DEFAULT")
         }
         print("result \(result)")

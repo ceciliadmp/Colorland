@@ -31,7 +31,7 @@ struct ContrastMachineView: View {
                     .fontWeight(.regular)
                     .foregroundColor(Color.white)
                 
-                DialogueContainer(image: "blueFace", text: "Play around with the colors and try to create a good contrast between them.")
+                DialogueContainer(image: "blueFace", text: "Test the contrasts! According to the Web Content Accessibility Guidelines, the level AA (minimum contrast) requires a contrast of at least 4.5:1. The level AAA (enhanced contrast) requires a contrast of at least 7:1")
                 
                 
                 //COLORS
@@ -44,14 +44,15 @@ struct ContrastMachineView: View {
                         .cornerRadius(20)
                         .foregroundColor(Color.white)
                     
-                    
-                    Image(systemName: "paintbrush.pointed.fill")
-                        .resizable()
-                        .frame(width: 200, height: 200)
-                        .foregroundColor(Color(UIColor(red: CGFloat((contrastViewModel.secondRed) / 255),
-                                            green: CGFloat((contrastViewModel.secondGreen) / 255),
-                                            blue: CGFloat((contrastViewModel.secondBlue) / 255),
-                                            alpha: 1)))
+                    Text("be the rainbow in a black and white world")
+                        .font(.system(size: 40).bold())
+                        .foregroundColor(Color(UIColor(
+                            red: CGFloat((contrastViewModel.secondRed) / 255),
+                            green: CGFloat((contrastViewModel.secondGreen) / 255),
+                            blue: CGFloat((contrastViewModel.secondBlue) / 255),
+                            alpha: 1)))
+                        .multilineTextAlignment(.center)
+    
                     
                 }.frame(height: 350)
                 
@@ -139,6 +140,7 @@ struct ContrastMachineView: View {
                         .fontWeight(.medium)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
+                        .padding(.bottom, 8)
                         
                     
                     Button {
