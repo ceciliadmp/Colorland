@@ -35,32 +35,23 @@ struct ContrastMachineView: View {
                 
                 
                 //COLORS
-                HStack{
+                ZStack{
                     Rectangle()
                         .fill(Color(UIColor(red: CGFloat((contrastViewModel.firstRed) / 255),
                                             green: CGFloat((contrastViewModel.firstGreen) / 255),
                                             blue: CGFloat((contrastViewModel.firstBlue) / 255),
                                             alpha: 1)))
                         .cornerRadius(20)
-                        .overlay(Image(systemName: "paintbrush.pointed.fill")
-                            .resizable()
-                            .frame(width: 150, height: 150))
                         .foregroundColor(Color.white)
                     
-                    Spacer()
-                        .frame(width: 24)
                     
-                    Rectangle()
-                        .fill(Color(UIColor(red: CGFloat((contrastViewModel.secondRed) / 255),
+                    Image(systemName: "paintbrush.pointed.fill")
+                        .resizable()
+                        .frame(width: 200, height: 200)
+                        .foregroundColor(Color(UIColor(red: CGFloat((contrastViewModel.secondRed) / 255),
                                             green: CGFloat((contrastViewModel.secondGreen) / 255),
                                             blue: CGFloat((contrastViewModel.secondBlue) / 255),
                                             alpha: 1)))
-                        .cornerRadius(20)
-                        .overlay(Image(systemName: "paintbrush.pointed.fill")
-                            .resizable()
-                            .frame(width: 150, height: 150))
-                        .foregroundColor(Color.white)
-                    
                     
                 }.frame(height: 350)
                 
