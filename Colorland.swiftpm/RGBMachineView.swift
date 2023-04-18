@@ -43,7 +43,10 @@ struct RGBMachineView: View {
                 
                     .frame(height: 300)
                     .cornerRadius(20)
-                    .overlay(Image("eyes"))
+                    .overlay(Image(systemName: "paintbrush.pointed.fill")
+                        .resizable()
+                        .frame(width: 180, height: 180)
+                        .foregroundColor(Color.white))
                 
                 ContrastSlider1(value: $contrastViewModel.rgbRed)
                 //slider that allows the user to adjust the red component of an RGB color value, with the changes reflected in the rgbRed variable

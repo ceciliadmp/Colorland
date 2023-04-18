@@ -37,16 +37,17 @@ struct ContrastOnboardingView: View {
                     //DIALOGUE CONTAINER
                     Rectangle()
                         .fill(Color(red: 0.093, green: 0.016, blue: 0.312))
-                        .opacity(0.6)
+                        .opacity(0.8)
                         .cornerRadius(20)
                         .frame(maxWidth: .infinity)
                         .overlay(
                             RoundedRectangle(cornerRadius: 20).stroke(Color(red: 0.531, green: 0.367, blue: 1), lineWidth: 2.0))
                     
                     Text("After that journey, allow me to introduce you to our latest invention: the Color Contrast Calculator! This amazing machine is designed to calculate the contrast between two colors, providing valuable information that can be used in many areas of Colorland and beyond.")
-                        .fontWeight(.medium)
-                        .font(.system(size: 24))
+                        .fontWeight(.semibold)
+                        .font(.system(size: 26))
                         .foregroundColor(Color.white)
+                        .lineSpacing(8)
                         .padding(24)
                     
                 }

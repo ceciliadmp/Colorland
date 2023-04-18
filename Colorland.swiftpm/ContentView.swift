@@ -8,7 +8,7 @@ struct ContentView: View {
     
     //ARRAYS OF IMAGES AND TEXTS
     let text = [
-        "Hello, welcome to ColorLand, the most colorful planet in space! My name is Blue and I will guide you on this adventure. For a better experience, it's important that you play in a vertical position. So let's start...",
+        "Hi! Welcome to ColorLand, the most colorful planet in space. My name is Blue and I will guide you on this adventure. For a better experience, it's important that you play in a vertical position. So let's start...",
         "We are all beings of light here, and our colors are made from the mixture of red, green and blue, the primary colors",
         "Unfortunately, not everything is well in our world. Colors have started to disappear, and we don't know what's happening. The blue of the sky has gone and the green of the trees has vanished. We are desperate to bring the colors back and we need your help."]
     
@@ -44,17 +44,16 @@ struct ContentView: View {
                     ZStack(){
                         Rectangle()
                             .fill(Color(red: 0.093, green: 0.016, blue: 0.312))
-                            .opacity(0.6)
                             .cornerRadius(20)
                             .frame(maxWidth: .infinity)
                             .overlay(
-                            RoundedRectangle(cornerRadius: 20).stroke(Color(red: 0.531, green: 0.367, blue: 1), lineWidth: 2.0))
+                            RoundedRectangle(cornerRadius: 20).stroke(Color(red: 0.531, green: 0.367, blue: 1), lineWidth: 4.0))
                         
                         Text(text[indexText])
-                            .fontWeight(.regular)
-                            .font(.system(size: 24))
+                            .fontWeight(.semibold)
+                            .font(.system(size: 26))
                             .foregroundColor(Color.white)
-                            .lineSpacing(2)
+                            .lineSpacing(8)
                             .padding(24)
                     }
                     .frame(height: 250)

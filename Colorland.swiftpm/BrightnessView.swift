@@ -46,7 +46,6 @@ struct BrightnessView: View {
                     
                     Image("machine")
                         .resizable()
-                        //.scaledToFit()
                     
                 }.frame(height: 330)
                 

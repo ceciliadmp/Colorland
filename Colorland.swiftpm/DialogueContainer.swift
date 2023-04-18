@@ -20,7 +20,7 @@ struct DialogueContainer: View {
             
             Rectangle()
                 .fill(Color(red: 0.093, green: 0.016, blue: 0.312))
-                .opacity(0.6)
+                .opacity(0.8)
                 .cornerRadius(20)
                 .frame(height: 150)
                 .overlay(

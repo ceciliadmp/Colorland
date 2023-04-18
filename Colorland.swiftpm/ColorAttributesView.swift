@@ -13,11 +13,6 @@ struct ColorAttributesView: View {
     @State var indexText2 = 0
     @State var count = 0
     
-    @State var transY: CGFloat = 0
-    var foreverAnimation = Animation.linear.speed(0.3)
-        .repeatForever(autoreverses: true)
-  
-    
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var colorViewModel: ColorViewModel
      @EnvironmentObject var contrastViewModel: ContrastViewModel
@@ -40,32 +35,39 @@ struct ColorAttributesView: View {
                 
                 ZStack(){
                     
+                    //DIALOGUE CONTAINER
                     Rectangle()
                         .fill(Color(red: 0.093, green: 0.016, blue: 0.312))
-                        .opacity(0.6)
+                        .opacity(0.8)
                         .cornerRadius(20)
                         .frame(maxWidth: .infinity)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 20).stroke(Color(red: 0.531, green: 0.367, blue: 1), lineWidth: 2.0))
-                    
-                    Text("Cool! Our sky is colorful again. Now the next step will be to understand a little more about the attributes of colors: Hue, Saturation and Brightness.")
-                        .fontWeight(.medium)
-                        .font(.system(size: 24))
-                        .foregroundColor(Color.white)
-                        .padding(24)
-                    
-                } //TEXTO
+                            RoundedRectangle(cornerRadius: 20).stroke(Color(red: 0.531, green: 0.367, blue: 1), lineWidth: 4.0))
+                        
+                        Text("Cool! Our sky is colorful again and it looks like I got a new color. Now the next step will be to understand a little more about the attributes of colors: Hue, Saturation and Brightness.")
+                            .fontWeight(.semibold)
+                            .font(.system(size: 26))
+                            .foregroundColor(Color.white)
+                            .lineSpacing(8)
+                            .padding(24)
+                }
                 .frame(height: 250)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 32)
                 
-                Image("blue")
-                    .offset(x: 0, y: transY+40)
-                    .onAppear() {
-                        withAnimation(foreverAnimation){
-                            transY = -20
-                        }}
-                    .padding(.vertical,32)
+                ZStack{
+                    Circle()
+                        .fill(Color(UIColor(
+                            red: CGFloat((contrastViewModel.rgbRed) / 255),
+                            green: CGFloat((contrastViewModel.rgbGreen) / 255),
+                            blue: CGFloat((contrastViewModel.rgbBlue) / 255),
+                            alpha: 1)))
+                    
+                        .frame(height: 400)
+                        .overlay(Image("eyes"))
+                    
+                }
+                
                 
                 Spacer()
                 

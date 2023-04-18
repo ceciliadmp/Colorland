@@ -23,13 +23,11 @@ struct RGBOnboardingView: View {
     let rgb = [
         "You've already started bringing color to our world! See the colored floor",
         "Our special machines capable of creating colors use the RGB system as a basis to generate new tones.",
-        "For example, when we want to create a new plant for our garden, we can choose a base color like green and use the RGB machine to create new shades of green, adjusting the amounts of red, green and blue used in the mix.",
         "Each color is represented by a numeric value ranging from 0 to 255, indicating the intensity of red, green, and blue light needed to produce the desired color. With that you will be able to create new characters for Colorland. Let's try it now!"]
     
     let rgbImages = [
     "blue",
     "blue",
-    "plant",
     "colorSystem"]
     
     var body: some View {
@@ -50,16 +48,17 @@ struct RGBOnboardingView: View {
                     //DIALOGUE CONTAINER
                     Rectangle()
                         .fill(Color(red: 0.093, green: 0.016, blue: 0.312))
-                        .opacity(0.6)
+                        .opacity(0.8)
                         .cornerRadius(20)
                         .frame(maxWidth: .infinity)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 20).stroke(Color(red: 0.531, green: 0.367, blue: 1), lineWidth: 2.0))
+                            RoundedRectangle(cornerRadius: 20).stroke(Color(red: 0.531, green: 0.367, blue: 1), lineWidth: 4.0))
                     
                     Text(rgb[indexRgb])
-                        .fontWeight(.medium)
-                        .font(.system(size: 24))
+                        .fontWeight(.semibold)
+                        .font(.system(size: 26))
                         .foregroundColor(Color.white)
+                        .lineSpacing(8)
                         .padding(24)
                     
                 }
