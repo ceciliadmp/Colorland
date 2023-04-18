@@ -122,31 +122,31 @@ struct ContrastMachineView: View {
             
             ZStack{
                 
-                Rectangle()
-                    .fill(Color.white)
-                    .cornerRadius(16)
+                Image("bgClear")
+                    .blur(radius: 12)
+                    .edgesIgnoringSafeArea(.all)
+                    
                     
                 VStack {
                     
-                    Image(systemName: "paintbrush.pointed.fill")
+                    Image("blue")
                         .resizable()
-                        .frame(width: 200, height: 200)
-                        .foregroundColor(.black)
+                        .frame(width: 300, height: 370)
                      
                     Spacer()
-                        .frame(height: 100)
+                        .frame(height: 60)
                     
                     Text(contrastViewModel.popUpText)
                         .font(.system(size: 44))
                         .fontWeight(.semibold)
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
                         .padding(.bottom, 16)
                     
                     Text(contrastViewModel.contrastDescription)
-                        .font(.system(size: 32))
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color(red: 0.093, green: 0.016, blue: 0.312))
+                        .font(.system(size: 36))
+                        .fontWeight(.medium)
+                        .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
                         
                     

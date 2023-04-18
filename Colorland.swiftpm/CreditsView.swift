@@ -65,7 +65,7 @@ struct CreditsView: View {
                                 .padding(.top, 16)
                                 .padding(.bottom, 8)
                         
-                        Text("Music composition and production by the owner, Cecília Moraes.")
+                        Text("Composition and musical production by the owner, Cecília Moraes. The song was made in GarageBand.")
                             .font(.system(size: 20))
                             .fontWeight(.regular)
                             .foregroundColor(Color.white)
